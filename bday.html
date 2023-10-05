@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Birthday Wishes</title>
+    <meta id="viewport" name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2, viewport-fit=cover">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            /* background-color: #f0f0f0; */
+            text-align: center;
+            background: url("https://media1.tenor.com/images/e49069c412d286402eb5403be596a6db/tenor.gif?itemid=8452792") no-repeat;
+            background-size: cover;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #00000075;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 10px auto;
+            width: 500px;
+            max-width: 85%;
+            animation: fadeIn 1s ease-in-out;
+            border: 4px dotted white;
+            color: white;
+            min-height: calc(100vh - 8px - 20px);
+        }
+
+
+
+        h1 {
+            color: #ff6600;
+            animation: scaleUp 1s ease-in-out;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes scaleUp {
+            from {
+                transform: scale(0.5);
+            }
+
+            to {
+                transform: scale(1);
+            }
+        }
+
+        /* CSS animations for additional elements */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out;
+            animation-fill-mode: forwards;
+        }
+
+        .slide-in-left {
+            transform: translateX(-100%);
+            animation: slideInLeft 1s ease-in-out;
+            animation-fill-mode: forwards;
+        }
+
+        .slide-in-right {
+            transform: translateX(100%);
+            animation: slideInRight 1s ease-in-out;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100%);
+            }
+
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+            }
+
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        .cakeImage {
+            height: 200px;
+        }
+
+
+        #popup-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 9999;
+        }
+
+        #popup {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80%;
+            transform: translate(-50%, -50%);
+            height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #ff6600;
+        }
+
+        #instagram-button {
+            background-color: #405DE6;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        #countdown {
+            font-size: 40px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="https://images6.alphacoders.com/110/thumb-1920-1107689.jpg" alt="Birthday Cake"
+            class="fade-in cakeImage" />
+        <br>
+        <h1 class="slide-in-left">Happy Birthday!</h1> <br>
+        <p class="fade-in">Dear [Friend's Name],</p>
+        <p class="fade-in">On this special day, I want to wish you all the happiness, health, and success in the world.
+            May your day be filled with joy and laughter, surrounded by loved ones who cherish you just as much as I do.
+        </p>
+        <p class="fade-in">Enjoy your day to the fullest! 🎉🎂</p>
+        <p class="fade-in">Warmest wishes,</p>
+        <p class="fade-in" id="countdown">6</p>
+
+
+        <div id="popup-container">
+            <div id="popup">
+                <h1>Special Surprise only for you</h1>
+                <p>Click the button below to open Instagram:</p>
+                <a id="instagram-button" href="login.html" target="_blank">View Reel <small>(Instagram)</small></a>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        let countdownNumber = 6;
+        let countdown = document.getElementById("countdown");
+        setInterval(() => {
+            if (countdownNumber == 0) {
+                countdown.style.display = "none"
+            } else {
+                countdown.innerText = countdownNumber;
+                countdownNumber--;
+            }
+        }, 1000)
+
+        // JavaScript animations for additional interactivity
+        setTimeout(() => {
+            document.querySelectorAll('.fade-in').forEach((element, index) => {
+                setTimeout(() => {
+                    element.style.opacity = '1';
+                }, index * 500); // Delay each element's animation
+            });
+        }, 1000); // Delay initial fade-in animation
+
+        setTimeout(() => {
+            document.getElementById("popup-container").style.display = "block";
+        }, 7000); // Delay initial fade-in animation
+
+
+    </script>
+</body>
+
+</html>
