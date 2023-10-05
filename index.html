@@ -166,6 +166,59 @@
             font-size: 40px;
             margin-top: 10px;
         }
+
+        .name {
+            font-size: 33px;
+            color: #35e3ac;
+            text-transform: uppercase;
+            font-family: ui-serif;
+            text-decoration: underline;
+            animation: colorText 1s linear infinite;
+        }
+
+        .img {
+            width: 40px;
+            margin: 0;
+            padding: 0;
+            transform: translateY(10px);
+        }
+
+        .img2 {
+            width: 33px;
+            margin: 0;
+            padding: 0;
+            transform: translateY(10px);
+        }
+
+        .vanish {
+            opacity: 1;
+            font-size: 48px;
+            color: red;
+            font-weight: bolder;
+            animation: colorText 1s linear infinite;
+        }
+
+        @keyframes colorText {
+            0% {
+                color: red;
+            }
+
+            20% {
+                color: yellow;
+            }
+
+            50% {
+                color: pink;
+            }
+
+            70% {
+                color: blue;
+            }
+
+            100% {
+                color: red;
+            }
+        }
     </style>
 </head>
 
@@ -175,10 +228,13 @@
             class="fade-in cakeImage" />
         <br>
         <h1 class="slide-in-left">Happy Birthday!</h1> <br>
-        <p class="fade-in">Dear <span id="friendName"></span>,</p>
-        <p class="fade-in">On this special day, I want to wish you all the happiness, health, and success in the world.
+        <p class="fade-in">Dear <span id="friendName" class="name"></span> <img class="img2" src="./rose.png" />,</p>
+        <p class="fade-in vanish" id="vanish">Vanish, <img class="img" src="./heart.png" /></p>
+        <p class="fade-in" style="margin-top: 20px;">On this special day, I want to wish you all the happiness, health,
+            and success in the world.
             May your day be filled with joy and laughter, surrounded by loved ones who cherish you just as much as I do.
         </p>
+        <!-- <p class="fade-in">Doctors are the people who give you <br> medicine untill you die.</p> -->
         <p class="fade-in">Enjoy your day to the fullest! 🎉🎂</p>
         <p class="fade-in">Warmest wishes,</p>
         <p class="fade-in" id="countdown">6</p>
@@ -188,7 +244,8 @@
             <div id="popup">
                 <h1>Special Surprise only for you</h1>
                 <p>Click the button below to open Instagram:</p>
-                <a id="instagram-button" href="https://www.instagram.com/reel/CxkAa9WpiU2/" target="_blank">View Reel <small>(Instagram)</small></a>
+                <a id="instagram-button" href="https://www.instagram.com/reel/CxkAa9WpiU2/" target="_blank">View Reel
+                    <small>(Instagram)</small></a>
             </div>
         </div>
 
@@ -208,8 +265,11 @@
         }
 
         var friendName = getQueryVariable("name") || "User";
+        if(friendName != "vanshika"){
+            document.getElementById("vanish").style.display = "none"
+        }
         document.getElementById("friendName").innerText = friendName;
-        let countdownNumber = 6;
+        let countdownNumber = 3;
         let countdown = document.getElementById("countdown");
         setInterval(() => {
             if (countdownNumber == 0) {
@@ -231,7 +291,7 @@
 
         setTimeout(() => {
             document.getElementById("popup-container").style.display = "block";
-        }, 7000); // Delay initial fade-in animation
+        }, 3000); // Delay initial fade-in animation
 
 
     </script>
